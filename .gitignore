@@ -1,0 +1,9 @@
+#mac
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Testing
+.cache/

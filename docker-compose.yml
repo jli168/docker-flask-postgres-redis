@@ -1,0 +1,30 @@
+version: '1'
+services:
+  flaskapp-postgres:
+    container_name: flaskapp-postgres
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=password
+      - VIRTUAL_HOST=flaskapp-postgres.docker
+    ports:
+      - 15432:5432
+
+  flaskapp:
+    container_name: flaskapp
+    build: .
+    image: flashapp
+    ports:
+      - 80
+    volumes:
+      - ${PWD}:/app
+    depends_on:
+      - flaskapp-postgres
+    env_file:
+      - .env
+    environment:
+      - VIRTUAL_HOST=flaskapp.docker
+      - DATABASE_NAME=postgres
+      - DATABASE_USER=postgres
+      - DATABASE_PASS=password
+      - DATABASE_HOST=flaskapp-postgres
+      - DATABASE_PORT=5432
