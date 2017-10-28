@@ -7,3 +7,9 @@ Example of how to build a dockerized flask app with postgres and redis.
 *   Build the images: `docker-compose build`
 *   Start the containers: `docker-compose up`
 *   Hit the browser with `http://flaskapp.docker/`, it should say `Hello World!`
+
+
+#### TODO:
+*   add database config to connect to postgress.
+*   add redis docker container, add redis cache service.
+*   add basis models for CRUD operations.

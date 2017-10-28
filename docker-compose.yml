@@ -1,4 +1,4 @@
-version: '1'
+version: '2'
 services:
   flaskapp-postgres:
     container_name: flaskapp-postgres
@@ -7,7 +7,7 @@ services:
       - POSTGRES_PASSWORD=password
       - VIRTUAL_HOST=flaskapp-postgres.docker
     ports:
-      - 15432:5432
+      - 5432:5432
 
   flaskapp:
     container_name: flaskapp
